@@ -1,27 +1,42 @@
 #include "Game.h"
-Game::Game(int max){
-    Game::maxNumber= max;
+Game::Game(int max)
+{
+    Game::maxNumber = max;
 }
-Game::~Game(){
+Game::~Game()
+{
 }
-void Game::play(){
-    Game::randomNumber= std::rand() % Game::maxNumber+1;
-    Game::numOfGuesses=1;
-std::cout << "Arvaa luku välillä 1-"<< Game::maxNumber << std::endl;
+void Game::play()
+{
+    Game::randomNumber = std::rand() % Game::maxNumber + 1;
+    Game::numOfGuesses = 1;
+    std::cout << "Arvaa luku välillä 1-" << Game::maxNumber << std::endl;
 
-Game::playerGuess;
-    do {
+    Game::playerGuess;
+    do
+    {
         std::cout << "Arvaa luku: ";
         std::cin >> Game::playerGuess;
-        if (Game::playerGuess<Game::randomNumber ) {
+        if (Game::playerGuess < Game::randomNumber)
+        {
             std::cout << "Luku on suurempi." << std::endl;
-        } else if (Game::playerGuess> Game::randomNumber) {
+        }
+        else if (Game::playerGuess > Game::randomNumber)
+        {
             std::cout << "Luku on pienempi." << std::endl;
-        } else {
+        }
+        else
+        {
             std::cout << "Oikea vastaus!" << std::endl;
             break;
         }
         Game::numOfGuesses++;
     } while (true);
     std::cout << "arvauksien määrä: " << Game::numOfGuesses << std::endl;
+}
+
+int Game::printGameResult()
+{
+    std::cout << "Arvauksien määrä: " << Game::numOfGuesses << std::endl;
+    return
 }
